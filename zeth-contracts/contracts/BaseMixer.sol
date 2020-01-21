@@ -94,7 +94,7 @@ contract BaseMixer is MerkleTreeMiMC7, ERC223ReceivingContract {
 
     // The unit used for public values (ether in and out), in Wei. Must match
     // the python wrappers. Use Szabos (10^12 Wei).
-    uint constant public_unit_value_wei = 1 szabo;
+    uint64 constant public_unit_value_wei = 1 szabo;
 
     // Event to emit the address of a commitment in the merke tree
     // Allows for faster execution of the "Receive" functions on the receiver side.
@@ -300,8 +300,8 @@ contract BaseMixer is MerkleTreeMiMC7, ERC223ReceivingContract {
 
     function process_public_values(uint[] memory primary_inputs) internal {
         // 0. We get vpub_in and vpub_out
-        uint64 vpub_in_zeth_units;
-        uint64 vpub_out_zeth_units;
+        uint vpub_in_zeth_units;
+        uint vpub_out_zeth_units;
         (vpub_in_zeth_units, vpub_out_zeth_units) = assemble_public_values(primary_inputs);
 
         // 1. We get the vpub_in in wei

@@ -149,7 +149,7 @@ def main() -> None:
         mixer_interface,
         hasher_interface,
         deployer_eth_address,
-        5000000,
+        4250000,
         # We mix Ether in this test, so we set the addr of the ERC20 contract
         # to be 0x0
         token_instance.address,
